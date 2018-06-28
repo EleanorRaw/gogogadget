@@ -25,7 +25,7 @@ while j<len(eliminations):
 splitstate=statement.split()
 
 #database for descriptions#
-cup = ['cup of water','thirsty','water','drink','pour']
+cup = ['cup of water','thirsty','water','drink','pour','splash']
 block = ['block','play','build','fun','bored']
 scissor =['pair of scissors','cut','sharp','clip','trim','trimmed']
 screwdriver = ['screwdriver','fix','screw','tool','unscrew']
