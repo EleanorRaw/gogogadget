@@ -33,7 +33,7 @@ pen =['pen','write','draw','jot']
 phone = ['phone','call','text','google']
 food =['croissant','food','hungry','eat','starving','peckish']
 flower =['flower','gift','floral','smell','sweet','pretty']
-sunglasses =['pair of sun glasses','sun','bright','protection','sunny']
+sunglasses =['pair of sun glasses','sun','bright','protection','sunny','tinted']
 
 #all possible objects
 possible = [cup,block,scissor,screwdriver,pen,phone,food,flower,sunglasses]
