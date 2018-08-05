@@ -1,0 +1,56 @@
+"""Eleanor Rawlinson
+8/5/2017
+Marvin
+Program for text based predictive action asssistance"""
+
+"""Import spacy and the actions and objects list.
+then receive text input"""
+import spacy
+nlp = spacy.load('en')
+actions =nlp(u"hold remove find fill lift")
+objects =nlp(u"book screwdriver cup shoes blocks")
+doc = input()
+doc2 = nlp(doc)
+
+"initialize the variables"
+rootfac=0
+nounfac=0
+nountoken=''
+
+
+"""First identify the root dependency: which will be the closest word similarity 
+to the action description"""
+"""Then identify any noun in the sentence for the object identification"""
+for token1 in doc2:
+    if token1.dep_ == "ROOT":
+        initialsim = 0
+        for token2 in actions:
+            if token1.similarity(token2) >= initialsim:
+                    initialsim = token1.similarity(token2)
+                    rootfac = token1.similarity(token2)
+                    roottoken =token2
+    if token1.pos_ == "NOUN":
+        initialsim = 0
+        for token2 in objects:
+            if token1.similarity(token2) >= initialsim:
+                    initialsim = token1.similarity(token2)
+                    nounfac = token1.similarity(token2)
+                    nountoken =token2
+
+
+
+"""if no noun can be found for instance "I am thirsty, then the object similarity must be 
+pulled from the verb and adjective words"""
+if nounfac == 0:
+    if token1.pos_ == "VERB" or "ADJ":
+        initialsim = 0
+        for token2 in objects:
+            if token1.similarity(token2) >= initialsim:
+                    initialsim = token1.similarity(token2)
+                    nounfac = token1.similarity(token2)
+                    nountoken =token2
+
+
+"""Print action and object"""
+print("I will",roottoken,"the",nountoken)
+
